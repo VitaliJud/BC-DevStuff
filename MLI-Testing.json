@@ -1,20 +1,20 @@
-Stoplight End-to-End User Guide:
-https://bigcommerce.stoplight.io/docs/api-beta-buy-online-pick-up-in-store/api-docs/end-to-end-guide
+// Stoplight End-to-End User Guide:
+// https://bigcommerce.stoplight.io/docs/api-beta-buy-online-pick-up-in-store/api-docs/end-to-end-guide
 
 
->> 1.0 Prerequisites
+//>> 1.0 Prerequisites
 
->You've created your BigCommerce store and opted into the MLI BOPIS APIs Open Beta (Settings > Inventory Settings > Click "Try it now" button).
->Store settings have been configured (e.g. Payments, Shipping, Tax, Catalog, etc)
->You are not using BigCommerce's defeault Checkout, but are using a custom checkout, i.e.
-  You have installed a new custom checkout or you have an existing checkout built on the Checkout JS SDK or;
-  You have built a headless experience using the Server-to-Server (S2S) Checkout V3 APIs
->OAuth scopes have been granted and configured on your store:
-  Store Inventory
-  Store Locations
-  Pickup Methods
-  Order Fulfillment
->Obtain Store API Credentials containing the required OAuth scopes.
+//>You've created your BigCommerce store and opted into the MLI BOPIS APIs Open Beta (Settings > Inventory Settings > Click "Try it now" button).
+//>Store settings have been configured (e.g. Payments, Shipping, Tax, Catalog, etc)
+//>You are not using BigCommerce's defeault Checkout, but are using a custom checkout, i.e.
+//  You have installed a new custom checkout or you have an existing checkout built on the Checkout JS SDK or;
+//  You have built a headless experience using the Server-to-Server (S2S) Checkout V3 APIs
+//>OAuth scopes have been granted and configured on your store:
+//  Store Inventory
+//  Store Locations
+//  Pickup Methods
+//  Order Fulfillment
+//>Obtain Store API Credentials containing the required OAuth scopes.
 
 
 // Storefront APIs
@@ -27,7 +27,7 @@ https://bigcommerce.stoplight.io/docs/api-beta-buy-online-pick-up-in-store/api-d
 // In production, your credentials will depend on your app setup. See Request.credentials to learn more about other possible values.
 
 
->>Creating Storefront API function:
+//>>Creating Storefront API function:
 
 function nameYourFunction(ARGUMENT1, ARGUMENT2) {
   return fetch(url, {
