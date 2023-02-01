@@ -1,0 +1,98 @@
+Stoplight End-to-End User Guide:
+https://bigcommerce.stoplight.io/docs/api-beta-buy-online-pick-up-in-store/api-docs/end-to-end-guide
+
+
+>> 1.0 Prerequisites
+
+>You've created your BigCommerce store and opted into the MLI BOPIS APIs Open Beta (Settings > Inventory Settings > Click "Try it now" button).
+>Store settings have been configured (e.g. Payments, Shipping, Tax, Catalog, etc)
+>You are not using BigCommerce's defeault Checkout, but are using a custom checkout, i.e.
+  You have installed a new custom checkout or you have an existing checkout built on the Checkout JS SDK or;
+  You have built a headless experience using the Server-to-Server (S2S) Checkout V3 APIs
+>OAuth scopes have been granted and configured on your store:
+  Store Inventory
+  Store Locations
+  Pickup Methods
+  Order Fulfillment
+>Obtain Store API Credentials containing the required OAuth scopes.
+
+
+Storefront APIs
+
+Can be used within browser's Console. Generally requires creation of a FUNCTION first that determines the Headers, arguments, objects and expected response/errors.
+Good existing guide can be found in BC Cart/Checkout Storefront API Tutorial: 
+https://developer.bigcommerce.com/docs/0a8e180eda793-working-with-the-storefront-cart-and-checkout-ap-is
+
+For this tutorial, set the credentials option to same-origin and the content-type fetch request option to application/json. 
+In production, your credentials will depend on your app setup. See Request.credentials to learn more about other possible values.
+
+
+>>Creating Storefront API function:
+
+function nameYourFunction(ARGUMENT1, ARGUMENT2) {
+  return fetch(url, {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify(ARGUMENT2),
+  })
+  .then(response => response.json())
+  .catch(error => console.error(error));
+};
+
+// nameYourFunction - you can name your function that will perform future request
+// ARGUMENT1 - will be used as 'url' at this stage
+// ARGUMENT2 - will be a JSON body object
+// method - can be replaced with desired GET/PUT/POST/DELETE request methods
+// credentials - might depens on the app setup, for browser - use "same-origin"
+// headers - might depend on type of function/requests you are making. Content-Type and Accept are most common. 
+// Due to Storefront being public resource - avoid using X-Auth and other OAuth tokens.
+
+
+>>3.1 Storefront REST API
+>>3.1.1 Find available pickup options with stock available
+
+function pickupOptions(url, searchArea) {
+  return fetch(url, {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify(searchArea),
+  })
+  .then(response => response.json())
+  .catch(error => console.error(error));
+};
+
+// The availablePickup() function takes two arguments:
+
+url: The Storefront Cart API url.
+searchArea: Coordinates, search radius and items used to view available in the location.
+
+
+pickupOptions(`/api/storefront/pickup-options`, {
+  "searchArea": {
+    "radius": {
+      "value": 25,
+      "unit": "MI"
+    },
+    "coordinates": {
+      "latitude": 32.8058616,
+      "longitude": -98.0105544
+    }
+  },
+  "items": [
+    {
+      "variantId": 30743,
+      "quantity": 2
+    }
+  ]
+}
+)
+.then(data => console.log(JSON.stringify(data)))
+.catch(error => console.error(error));
