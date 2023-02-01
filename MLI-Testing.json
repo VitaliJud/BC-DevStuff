@@ -17,14 +17,14 @@ https://bigcommerce.stoplight.io/docs/api-beta-buy-online-pick-up-in-store/api-d
 >Obtain Store API Credentials containing the required OAuth scopes.
 
 
-Storefront APIs
+// Storefront APIs
 
-Can be used within browser's Console. Generally requires creation of a FUNCTION first that determines the Headers, arguments, objects and expected response/errors.
-Good existing guide can be found in BC Cart/Checkout Storefront API Tutorial: 
-https://developer.bigcommerce.com/docs/0a8e180eda793-working-with-the-storefront-cart-and-checkout-ap-is
+// Can be used within browser's Console. Generally requires creation of a FUNCTION first that determines the Headers, arguments, objects and expected response/errors.
+// Good existing guide can be found in BC Cart/Checkout Storefront API Tutorial: 
+// https://developer.bigcommerce.com/docs/0a8e180eda793-working-with-the-storefront-cart-and-checkout-ap-is
 
-For this tutorial, set the credentials option to same-origin and the content-type fetch request option to application/json. 
-In production, your credentials will depend on your app setup. See Request.credentials to learn more about other possible values.
+// For this tutorial, set the credentials option to same-origin and the content-type fetch request option to application/json. 
+// In production, your credentials will depend on your app setup. See Request.credentials to learn more about other possible values.
 
 
 >>Creating Storefront API function:
@@ -71,8 +71,8 @@ function pickupOptions(url, searchArea) {
 
 // The availablePickup() function takes two arguments:
 
-url: The Storefront Cart API url.
-searchArea: Coordinates, search radius and items used to view available in the location.
+// url: The Storefront Cart API url.
+// searchArea: Coordinates, search radius and items used to view available in the location.
 
 
 pickupOptions(`/api/storefront/pickup-options`, {
