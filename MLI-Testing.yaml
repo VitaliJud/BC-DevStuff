@@ -74,6 +74,7 @@ function pickupOptions(url, searchArea) {
 // url: The Storefront Cart API url.
 // searchArea: Coordinates, search radius and items used to view available in the location.
 
+// Below coordinates referencing BigCommerce Austin HQ address
 
 pickupOptions(`/api/storefront/pickup-options`, {
   "searchArea": {
@@ -82,8 +83,8 @@ pickupOptions(`/api/storefront/pickup-options`, {
       "unit": "MI"
     },
     "coordinates": {
-      "latitude": 32.8058616,
-      "longitude": -98.0105544
+      "latitude": 30.4044284,
+      "longitude": -97.8514013
     }
   },
   "items": [
