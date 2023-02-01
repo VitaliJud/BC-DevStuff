@@ -52,8 +52,8 @@ function nameYourFunction(ARGUMENT1, ARGUMENT2) {
 // Due to Storefront being public resource - avoid using X-Auth and other OAuth tokens.
 
 
->>3.1 Storefront REST API
->>3.1.1 Find available pickup options with stock available
+//>>3.1 Storefront REST API
+//>>3.1.1 Find available pickup options with stock available
 
 function pickupOptions(url, searchArea) {
   return fetch(url, {
